@@ -94,13 +94,13 @@
                          @foreach ($pendaftarans as $pendaftaran)
                             <div class="row justify-content-around">
                                 <div class="col">
-                                    <font size="2" color="black" face="sans-serif"> Anda Terdaftar Di </font>
+                                    <font size="2" color="black" face="sans-serif"> Anda terdaftar di </font>
                                     <br>
                                     <br>
                                     <font size="4" color="black" face="Roboto" class="text-bold"> {{ $pendaftaran->penyedia_layanan->nama_penyedia }} </font>
                                     <br>
                                     <br>
-                                    <font size="2" color="black" face="Roboto" class="form-label" for="No.anda">Pada Tanggal</font>
+                                    <font size="2" color="black" face="Roboto" class="form-label" for="No.anda">Tanggal</font>
                                     <br>
                                     <br>
                                     <font size="4" color="black" face="Roboto" class="form-temp text-center">{{ $pendaftaran->tanggal_layanan }}</font>
@@ -117,7 +117,12 @@
                                     <br>
                                     <font size="4" color="black" face="Arial" class="form-temp text-center text-bold">{{ $pendaftaran->no_antrian }}</font>
                                 </div>
+
                             </div>
+                            <br>
+                            <button type="submit" class="btn btn-base">Beri penilaian</button>
+                            <br>
+
                             <font>___________________________</font>
                             @endforeach
 
@@ -130,7 +135,7 @@
                 <div class="card-profile">
                     <div class="invite-wrap bg-danger ">
                         <div>
-                        <p>Anda Tidak Terdaftar Dilayanan Apapun</p>
+                        <p>Anda belum Terdaftar Dilayanan Apapun</p>
                         </div>
                         <br>
                         <br>
@@ -171,7 +176,7 @@
                             <label>{{ $penyedia_layanan->nama_kontak }} </label>
                             <span class="ms-3">{{ $penyedia_layanan->no_telp }}</span>
                         </div>
-                        
+
                         <div class="col-12 text-center">
                             <form action="/layanan">
                                 <input type="hidden" name="layanan" value="{{ $penyedia_layanan->id }}">
