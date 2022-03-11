@@ -86,20 +86,6 @@ class Pengguna_layananController extends Controller
      * @param  \App\Models\Pengguna_layanan  $pengguna_layanan
      * @return \Illuminate\Http\Response
      */
-    public function kota(Request $request)
-    {
-        $cities= City::where('province_id', $request->get('id'))->pluck('name', 'id');
-
-        return response()->json($cities);
-        // dd($request);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Pengguna_layanan  $pengguna_layanan
-     * @return \Illuminate\Http\Response
-     */
     public function show(Pengguna_layanan $pengguna_layanan)
     {
         //
