@@ -15,7 +15,7 @@
 			<div class="dropdown-menu  bg-transparent border-0 mt-n1 ms-3">
 				<div class="card card-style rounded-m shadow-xl mt-1 me-1">
 					<div class="list-group list-custom list-group-s list-group-flush rounded-xs px-3 py-1">
-						<a href="/profile" class="color-theme opacity-70 list-group-item py-1"><strong class="font-500 font-12">Profile Anda</strong><i class="bi bi-chevron-right"></i></a>
+						<a href="/profile" class="color-theme opacity-70 list-group-item py-1"><strong class="font-500 font-12">Edit Profile</strong><i class="bi bi-chevron-right"></i></a>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" class="color-theme opacity-70 list-group-item py-1"><strong class="font-500 font-12">Log Out</strong><i class="bi bi-chevron-right"></i></a>
@@ -27,28 +27,27 @@
 	</div>
 </div>
 
-<span class="menu-divider">NAVIGATION</span>
+<span class="menu-divider">Menu Lainnya</span>
 <div class="menu-list">
 	<div class="card card-style rounded-m p-3 py-2 mb-0">
-		<a href="index.html" id="nav-homes"><i class="gradient-blue shadow-bg shadow-bg-xs bi bi-house-fill"></i><span>Homepage</span><i class="bi bi-chevron-right"></i></a>
-		<a href="index-components.html" id="nav-comps"><i class="gradient-red shadow-bg shadow-bg-xs bi bi-gear-fill"></i><span>Components</span><i class="bi bi-chevron-right"></i></a>
-		<a href="index-pages.html" id="nav-pages"><i class="gradient-green shadow-bg shadow-bg-xs bi bi-heart-fill"></i><span>Site Pages</span><i class="bi bi-chevron-right"></i></a>
-		<a href="index-media.html" id="nav-media"><i class="gradient-yellow shadow-bg shadow-bg-xs bi bi-image-fill"></i><span>Media Styles</span><i class="bi bi-chevron-right"></i></a>
-		<a href="index-contact.html" id="nav-mails"><i class="gradient-magenta shadow-bg shadow-bg-xs bi bi-envelope-fill"></i><span>Contact</span><i class="bi bi-chevron-right"></i></a>
+		<a href="" id="{{ Request::is('*')? "nav-homes":"nav-pages" }}"></a>
+		<a href="/" id="{{ Request::is('tiket*')? "nav-homes":"nav-pages" }}"><i class="gradient-blue shadow-bg shadow-bg-xs bi bi-clock-history"></i><span>Riwayat layanan</span><i class="bi bi-chevron-right"></i></a>
+		<a href="/" id="{{ Request::is('profile*')? "nav-homes":"nav-pages" }}"><i class="gradient-red shadow-bg shadow-bg-xs bi bi-search"></i><span>Cari Layanan</span><i class="bi bi-chevron-right"></i></a>
+		<a href="/" id="{{ Request::is('/')? "nav-homes":"nav-pages" }}"><i class="gradient-green shadow-bg shadow-bg-xs bi bi-heart-fill"></i><span>Favorit</span><i class="bi bi-chevron-right"></i></a>
 	</div>
 </div>
 
-<span class="menu-divider mt-4">SETTINGS</span>
+<span class="menu-divider">Pengaturan</span>
 <div class="menu-list">
 	<div class="card card-style rounded-m p-3 py-2 mb-0">
-		<a href="#">
+		<a href="#" data-bs-toggle="offcanvas" data-bs-target="#menu-color">
 			<i class="gradient-highlight shadow-bg shadow-bg-xs bi bi-palette-fill"></i>
-			<span>Highlights</span>
+			<span>Warna Tema</span>
 			<i class="bi bi-chevron-right"></i>
 		</a>
 		<a href="#" data-toggle-theme data-trigger-switch="switch-1">
 			<i class="gradient-dark shadow-bg shadow-bg-xs bi bi-moon-fill font-13"></i>
-			<span>Dark Mode</span>
+			<span>Mode Gelap</span>
 			<div class="form-switch ios-switch switch-green switch-s me-2">
 				<input type="checkbox" data-toggle-theme class="ios-input" id="switch-1">
 				<label class="custom-control-label" for="switch-1"></label>

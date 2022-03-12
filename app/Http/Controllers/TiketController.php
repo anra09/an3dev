@@ -2,15 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Layanan;
 use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
-use App\Models\Pengguna_layanan;
-use App\Models\Penyedia_layanan;
-use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Auth;
 
-class DashboardController extends Controller
+class TiketController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,19 +14,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $user=Auth::user()->id;
-        $pendaftarans=Pendaftaran::select()->where('pengguna_id' , $user)->get();
-        // $penggunas=Pengguna_layanan::select()->where('user_id' , $user)->get();
-        // dd($penggunas);
-        // dd($pendaftarans);
-        return view('dashboard', [
+         return view('app.tiket.index', [
             'header'=>1,
             'menu'=>1,
-            'judul'=>'Hai..',
-            // 'penggunas' => Pengguna_layanan::select()->where('user_id' , $user)->get(),
-            'penyedia_layanans'=>Penyedia_layanan::all(),
-            'layanans'=>Layanan::all(),
-            'pendaftarans'=>Pendaftaran::select()->where('pengguna_id' , $user)->get(),
+            'judul'=>'Tiket anda',
         ]);
     }
 
@@ -53,16 +39,16 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Layanan  $layanan
+     * @param  \App\Models\Pendaftaran  $pendaftaran
      * @return \Illuminate\Http\Response
      */
-    public function show(Layanan $layanan)
+    public function show(Pendaftaran $pendaftaran)
     {
         //
     }
@@ -70,10 +56,10 @@ class DashboardController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Layanan  $layanan
+     * @param  \App\Models\Pendaftaran  $pendaftaran
      * @return \Illuminate\Http\Response
      */
-    public function edit(Layanan $layanan)
+    public function edit(Pendaftaran $pendaftaran)
     {
         //
     }
@@ -82,10 +68,10 @@ class DashboardController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Layanan  $layanan
+     * @param  \App\Models\Pendaftaran  $pendaftaran
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Layanan $layanan)
+    public function update(Request $request, Pendaftaran $pendaftaran)
     {
         //
     }
@@ -93,10 +79,10 @@ class DashboardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Layanan  $layanan
+     * @param  \App\Models\Pendaftaran  $pendaftaran
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Layanan $layanan)
+    public function destroy(Pendaftaran $pendaftaran)
     {
         //
     }

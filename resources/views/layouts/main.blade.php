@@ -4,13 +4,11 @@
 @include('layouts.color_setting')
 @include('layouts.notif')
 
-
-
 @yield('container')
 
 </div>
 <!--End of Page ID-->
 
-<script src="scripts/bootstrap.min.js"></script>
-<script src="scripts/custom.js"></script>
+<script src="{{ URL::to('/'); }}/scripts/bootstrap.min.js"></script>
+<script src="{{ URL::to('/'); }}/scripts/custom.js"></script>
 </body>

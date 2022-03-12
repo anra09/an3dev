@@ -3,12 +3,14 @@
 use App\Models\Pendaftaran;
 use App\Models\Pengguna_layanan;
 use Illuminate\Support\Facades\Route;
+use Database\Seeders\IndoRegionSeeder;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\TiketController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\Pengguna_layananController;
 use App\Http\Controllers\Penyedia_layananController;
-use Database\Seeders\IndoRegionSeeder;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,11 +43,17 @@ Route::middleware(['auth:sanctum','verified'])->resource('/dashboard',DashboardC
 
 Route::middleware(['auth:sanctum','verified'])->resource('/',DashboardController::class );
 
+Route::middleware(['auth:sanctum','verified'])->resource('/user',UserController::class );
+
+Route::middleware(['auth:sanctum','verified'])->resource('/ubah_password',Ubah_passwordController::class );
+
 Route::middleware(['auth:sanctum','verified'])->resource('/profile',Pengguna_layananController::class );
 
 Route::middleware(['auth:sanctum','verified'])->resource('/daftar',PendaftaranController::class );
 
 Route::middleware(['auth:sanctum','verified'])->resource('/layanan',Penyedia_layananController::class );
+
+Route::middleware(['auth:sanctum','verified'])->resource('/tiket',TiketController::class );
 
 Route::post('profile-kota', 'Pengguna_layananController@kota')->name('profile-kota.kota');
 

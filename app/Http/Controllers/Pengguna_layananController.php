@@ -29,8 +29,10 @@ class Pengguna_layananController extends Controller
     {
         $user=Auth::user()->id;
         // $penggunas=Pengguna_layanan::select()->where('user_id' , $user)->get();
-        // dd($penggunas);
+        // dd($penggunas); 
         return view('app.profile.index', [
+            'header'=>1,
+            'menu'=>1,
             'judul'=>'Profile',
             'provinces' => Province::all(),
             'regencies' => Regency::all(),
@@ -99,7 +101,18 @@ class Pengguna_layananController extends Controller
      */
     public function edit(Pengguna_layanan $pengguna_layanan)
     {
-        //
+        $user=Auth::user()->id;
+        // $penggunas=Pengguna_layanan::select()->where('user_id' , $user)->get();
+        // dd($penggunas);
+        return view('app.profile.edit', [
+            'header'=>0,
+            'menu'=>0,
+            'judul'=>'',
+            'kembali'=>'/profile',
+            'penggunas' => Pengguna_layanan::select()->where('user_id' , $user)->get(),
+            'penyedia_layanans'=>Penyedia_layanan::all(),
+            'layanans'=>Layanan::all(),
+            ]);
     }
 
     /**
